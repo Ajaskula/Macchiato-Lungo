@@ -130,6 +130,9 @@ public class State {
   public List<Character> getProcedureValues(String name){
     return getProcedure(name).getKey();
   }
+  public Map<String, Pair<List<Character>, Block>> getProcedures(){
+    return this.procedures;
+  }
 
   public void removeVariable(Character name) {
     this.variables.remove(name);
@@ -184,14 +187,48 @@ public class State {
     sb.append("\n");
     return sb.toString();
   }
-  //wypisuje informację o aktualnie dostępnych procedurach w bloku
-//  public String displayProcedures(){
-//    if(procedures == null){
-//      return "";
-//    }
-//    StringBuilder sb = new StringBuilder();
-//
-//    //Chcę przejść bierzącą mapę i
-//    State parent = this.parent;
-//  }
+  // wypisuje informację o aktualnie dostępnych procedurach w bloku
+  public String displayProcedures(){
+    if(procedures == null){
+      return "";
+    }
+    StringBuilder sb = new StringBuilder();
+
+    //będzie to mapa którą wyświetlę
+    Map<String, List<Character>> mapToDisplay = new LinkedHashMap<>();
+
+    //dokładam wszystko z bierzącej mapy
+    for(Map.Entry<String, Pair<List<Character>, Block>> entry : procedures.entrySet()){
+        mapToDisplay.put(entry.getKey(), entry.getValue().getKey());
+    }
+
+     State parent = this.parent;
+
+     while(parent != null){
+       Map<String, Pair<List<Character>, Block>> parentProcedures = parent.getProcedures();
+
+       for(Map.Entry<String, Pair<List<Character>, Block>> entry : parentProcedures.entrySet()){
+         if(!mapToDisplay.containsKey(entry.getKey())){
+           mapToDisplay.put(entry.getKey(), entry.getValue().getKey());
+         }
+       }
+
+       parent = parent.getParent();
+     }
+      for(Map.Entry<String, List<Character>> entry : mapToDisplay.entrySet()){
+        sb.append(entry.getKey() + "(");
+        for( Character character : entry.getValue()){
+          sb.append(" " + character.toString());
+        }
+        sb.append(" )");
+      }
+      sb.append("\n");
+    return sb.toString();
+  }
+  public String display(){
+    StringBuilder sb = new StringBuilder();
+    sb.append(displayVariables());
+    sb.append(displayProcedures());
+    return sb.toString();
+  }
 }

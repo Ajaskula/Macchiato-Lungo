@@ -1,3 +1,5 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -48,6 +50,24 @@ public class Debugger {
             }
             counter = steps;
             return;
+          // saves to the file current state
+          case 'm':
+            scanner.skip("\\s+");
+            String filePath = scanner.nextLine();
+            String stateToSave = "";
+            if(state == null){
+              stateToSave = "There aren't any visible variables or procedures";
+            }else{
+              stateToSave = state.display();
+            }
+            //próba zapisu do pliku pod wskazaną ścieżką
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))){
+              writer.write(stateToSave);
+              System.out.println("State successfully saved to file");
+            }catch( IOException e){
+              System.out.println("Something went wrong when writing to file!");
+            }
+            break;
         }
       }
     }
