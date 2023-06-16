@@ -42,31 +42,31 @@ public class Main {
     List<Expression> expressionList = Arrays.asList(new Variable('k'), new NumericalLiteral(4));
     blokwew.addInstruction(new ProcedureCall("name", expressionList));
 
-//    ForLoop loop2 =
-//        new ForLoop(new Variable('i'), new Subtraction(new Variable('k'), new NumericalLiteral(2)));
-//    blokwew.addInstruction(loop2);
-//
-//    AssigmentInstruction przyp3 =
-//        new AssigmentInstruction('i', new Addition(new Variable('i'), new NumericalLiteral(2)));
-//
-//    loop2.addInstruction(przyp3);
-//
-//    IfInstruction war2 = new IfInstruction(new Modulo(new Variable('k'), new Variable('i')),
-//        new NumericalLiteral(0), new EqExpression());
-//
-//    loop2.addInstruction(war2);
-//
-//    AssigmentInstruction przpy4 = new AssigmentInstruction('p', new NumericalLiteral(0));
-//
-//    war2.addIfInstruction(przpy4);
-//
-//    IfInstruction war3 =
-//        new IfInstruction(new Variable('p'), new NumericalLiteral(1), new EqExpression());
-//    blokwew.addInstruction(war3);
-//
-//    Print pri = new Print(new Variable('k'));
-//
-//    war3.addIfInstruction(pri);
+    ForLoop loop2 =
+        new ForLoop(new Variable('i'), new Subtraction(new Variable('k'), new NumericalLiteral(2)));
+    blokwew.addInstruction(loop2);
+
+    AssigmentInstruction przyp3 =
+        new AssigmentInstruction('i', new Addition(new Variable('i'), new NumericalLiteral(2)));
+
+    loop2.addInstruction(przyp3);
+
+    IfInstruction war2 = new IfInstruction(new Modulo(new Variable('k'), new Variable('i')),
+        new NumericalLiteral(0), new EqExpression());
+
+    loop2.addInstruction(war2);
+
+    AssigmentInstruction przpy4 = new AssigmentInstruction('p', new NumericalLiteral(0));
+
+    war2.addIfInstruction(przpy4);
+
+    IfInstruction war3 =
+        new IfInstruction(new Variable('p'), new NumericalLiteral(1), new EqExpression());
+    blokwew.addInstruction(war3);
+
+    Print pri = new Print(new Variable('k'));
+
+    war3.addIfInstruction(pri);
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // This is code to test program for VariableAlreadyDeclaredException
     //       ProgramBlock glownyBlok = new ProgramBlock();
@@ -299,7 +299,7 @@ public class Main {
     //       war3.addIfInstruction(pri);
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    ProgramExecution execute = new ProgramExecution(blokwew);
+    ProgramExecution execute = new ProgramExecution(glownyBlok);
     // uncomment this to run program with debugging
     execute.debug();
     // uncomment this to run program without debugging
