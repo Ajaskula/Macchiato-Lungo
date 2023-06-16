@@ -30,7 +30,7 @@ public class IfInstruction extends Instruction {
   @Override
   public void execute(State variables, Debugger debugger)
       throws IOException, VariableNotFoundException, ZeroDivisionException,
-             VariableAlreadyDeclaredException, ModuloException {
+             VariableAlreadyDeclaredException, ModuloException, ProcedureAlreadyDeclaredException {
     debugger.trace_instructions(this, variables);
     try {
       if (condition.evaluate(variables, expression1, expression2)) {
