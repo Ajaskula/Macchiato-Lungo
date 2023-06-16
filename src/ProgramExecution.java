@@ -29,6 +29,8 @@ public class ProgramExecution {
       System.out.println(e.getMessage());
     } catch (IOException e) {
       System.out.println("Input or output error has appeared!");
+    } catch( ProcedureAlreadyDeclaredException e){
+
     }
   }
 
@@ -50,6 +52,8 @@ public class ProgramExecution {
       System.out.println(e.getMessage());
     } catch (IOException e) {
       System.out.println("Input or output error has appeared!");
+    } catch (ProcedureAlreadyDeclaredException e){
+
     }
   }
 }

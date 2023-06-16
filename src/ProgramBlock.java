@@ -4,8 +4,7 @@ import java.util.List;
 
 // represents Block in Macchiato
 public class ProgramBlock extends Instruction {
-  private List<VariableDeclaration> declarations;
-
+  private List<Declaration> declarations;
   private Block instructions;
 
   public ProgramBlock() {
@@ -25,33 +24,33 @@ public class ProgramBlock extends Instruction {
     this.instructions.getInstructions().add(instruction);
   }
 
-  public void addDeclaration(VariableDeclaration declaration) {
+  public void addDeclaration(Declaration declaration) {
     declarations.add(declaration);
   }
 
   public void setDeclarations(State variables)
-      throws VariableNotFoundException, VariableAlreadyDeclaredException, ZeroDivisionException {
-    for (VariableDeclaration declaration : declarations) {
+      throws VariableNotFoundException, VariableAlreadyDeclaredException, ZeroDivisionException, ProcedureAlreadyDeclaredException {
+    for (Declaration declaration : declarations) {
       declaration.execute(variables);
     }
   }
 
-  public void execute(State oldvariables, Debugger debugger)
+  public void execute(State oldState, Debugger debugger)
       throws IOException, VariableNotFoundException, VariableAlreadyDeclaredException,
-             ZeroDivisionException, ModuloException {
-    State variables = new State(oldvariables);
-    debugger.trace_instructions(this, oldvariables);
+             ZeroDivisionException, ModuloException, ProcedureAlreadyDeclaredException {
+    State state = new State(oldState);
+    debugger.trace_instructions(this, oldState);
     try {
-      setDeclarations(variables);
+      setDeclarations(state);
     } catch (VariableAlreadyDeclaredException e) {
       throw new VariableAlreadyDeclaredException(e.getMessage() + " in:\n " + this.display(0));
     }
 
     // execute instructions
-    instructions.execute(variables, debugger);
+    instructions.execute(state, debugger);
     // display declarations if the block is the main block of the program
-    if (variables.getParent() == null) {
-      System.out.print(variables.display());
+    if (state.getParent() == null) {
+      System.out.print(state.displayVariables());
     }
   }
 

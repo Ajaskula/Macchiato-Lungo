@@ -22,7 +22,7 @@ public class ForLoop extends Instruction {
 
   @Override
   public void execute(State oldvariables, Debugger debugger)
-      throws IOException, VariableNotFoundException, VariableAlreadyDeclaredException,
+      throws IOException, VariableNotFoundException, VariableAlreadyDeclaredException, ProcedureAlreadyDeclaredException,
              ModuloException, ZeroDivisionException {
     State variables = new State(oldvariables);
     debugger.trace_instructions(this, oldvariables);
@@ -40,7 +40,7 @@ public class ForLoop extends Instruction {
       throw new ModuloException(
           e.getMessage() + " in:\n " + this.display(0) + "\n" + variables.display_level(0));
     }
-    if (!variables.checkIfVariableisDeclared(variable.getName())) {
+    if (!variables.checkIfVariableIsDeclared(variable.getName())) {
       variables.addVariable(variable.getName(), 0);
     }
     for (int i = 0; i < repeatNumber; i++) {

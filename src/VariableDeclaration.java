@@ -1,4 +1,4 @@
-public class VariableDeclaration {
+public class VariableDeclaration extends Declaration{
   private Expression expression;
   private Character name;
 
