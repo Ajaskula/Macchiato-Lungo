@@ -11,6 +11,9 @@ public class Division extends Expression {
     this.expresion1 = expression1;
     this.expresion2 = expression2;
   }
+  public static Division of(Expression expresion1, Expression expresion2){
+      return new Division(expresion1, expresion2);
+  }
 
   @Override
   public int evaluate(State variables) throws VariableNotFoundException, ZeroDivisionException {

@@ -12,6 +12,10 @@ public class Modulo extends Expression {
     this.expresion2 = expression2;
   }
 
+  public static Modulo of(Expression expression1, Expression expresion2){
+    return new Modulo(expression1, expresion2);
+  }
+
   @Override
   public int evaluate(State variables)
       throws ArithmeticException, VariableNotFoundException, ZeroDivisionException {

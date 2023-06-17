@@ -12,6 +12,10 @@ public class Subtraction extends Expression {
     this.expression2 = expression2;
   }
 
+  public static Subtraction of(Expression expression1, Expression expression2){
+    return new Subtraction(expression1, expression2);
+  }
+
   // calculate a value as a diff between values of two expressions
   @Override
   public int evaluate(State variables) throws VariableNotFoundException, ZeroDivisionException {

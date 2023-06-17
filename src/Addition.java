@@ -12,6 +12,10 @@ public class Addition extends Expression {
     this.expresion2 = expression2;
   }
 
+  public static Addition of(Expression expresion1, Expression expresion2){
+    return new Addition(expresion1, expresion2);
+  }
+
   // calculates value of addition as a sum of it's expressions
   @Override
   public int evaluate(State variables) throws VariableNotFoundException, ZeroDivisionException {
