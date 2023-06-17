@@ -1,12 +1,12 @@
-public class GreaterEqExpression implements BooleanCondition {
+public class LessEqCondition implements BooleanCondition {
   @Override
   public boolean evaluate(State variables, Expression left, Expression right)
       throws VariableNotFoundException, ZeroDivisionException {
-    return left.evaluate(variables) >= right.evaluate(variables);
+    return left.evaluate(variables) <= right.evaluate(variables);
   }
 
   @Override
   public String getOperator() {
-    return " >= ";
+    return " <= ";
   }
 }

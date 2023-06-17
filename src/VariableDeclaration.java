@@ -11,6 +11,7 @@ public class VariableDeclaration extends Declaration{
   }
 
   // adds variable to the current state
+  @Override
   public void execute(State variables) throws VariableAlreadyDeclaredException,
                                               VariableNotFoundException, ZeroDivisionException,
                                               ModuloException {

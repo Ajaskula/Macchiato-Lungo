@@ -1,4 +1,4 @@
-public class EqExpression implements BooleanCondition {
+public class EqCondition implements BooleanCondition {
   @Override
   public boolean evaluate(State variables, Expression left, Expression right)
       throws VariableNotFoundException, ZeroDivisionException {
