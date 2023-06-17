@@ -53,6 +53,7 @@ public class ProcedureDeclaration extends Declaration {
     }
 
     // Adds procedure to actual state.
+    @Override
     public void execute(State state) throws ProcedureAlreadyDeclaredException{
 
         state.addProcedure(name, new Pair<List<Character>, Block>(parameters, content));
