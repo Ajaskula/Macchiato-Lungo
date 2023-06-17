@@ -1,5 +1,7 @@
-// represents Division expression
-// enable to display and evaluate division of two expressions
+/* Represents Division expression
+ enable to display and evaluate division of two expressions
+ */
+
 public class Division extends Expression {
   private Expression expresion1;
   private Expression expresion2;

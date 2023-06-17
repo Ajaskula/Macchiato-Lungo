@@ -1,5 +1,7 @@
-// represents Modulo Expressions
-// enable to display and evaluate Modulo operation of two expressions
+/*
+Represents Modulo Expressions
+enable to display and evaluate Modulo operation of two expressions
+ */
 public class Modulo extends Expression {
   private Expression expresion1;
   private Expression expresion2;

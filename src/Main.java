@@ -1,4 +1,3 @@
-import javax.sound.midi.VoiceStatus;
 import java.util.List;
 
 public class Main {
@@ -297,16 +296,26 @@ public class Main {
     //
     //       war3.addIfInstruction(pri);
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // In my implementation, "Block" can only contain instructions, while "ProgramBlock" can also contain declarations.
+    // The implementation utilizes dynamic variable binding.
+
+    // Program from the task
     var program = new ProgramBuilder()
-            .declareVariable('x', Constant.of(57))
-            .declareVariable('y', Constant.of(15))
-            .declareProcedure(
-                    "out", List.of('a'),
-                    new BlockBuilder().print(Variable.named('a')).build()
+            .declareVariable('x', Constant.of(101))
+            .declareVariable('y', Constant.of(1))
+            .declareProcedure("out", List.of('a'), new BlockBuilder()
+                    .print(Addition.of(Variable.named('a'), Variable.named('x')))
+                    .build()
             )
             .assign('x', Subtraction.of(Variable.named('x'), Variable.named('y')))
             .invoke("out", List.of(Variable.named('x')))
-            .invoke("out", List.of(Constant.of(125)))
+            .invoke("out", List.of(Constant.of(100)))
+            .programBlock(new ProgramBuilder()
+                    .declareVariable('x', Constant.of(10))
+                    .invoke("out", List.of(Constant.of(100)))
+                    .build()
+            )
             .build();
 
     ProgramExecution execute = new ProgramExecution(program);

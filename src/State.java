@@ -1,6 +1,7 @@
 import java.util.*;
-
-// class represents the set of currently visible variables and their values
+/*
+ Class represents the set of currently visible variables and their values
+ */
 public class State {
   private State parent;
 
@@ -49,47 +50,6 @@ public class State {
     }
     return sb.toString();
   }
-
-  // displays visible procedures and its parameters
-//  public String displayVisibleProcedures(){
-//      StringBuilder sb = new StringBuilder();
-//      if(parent == null){
-//        return sb.toString();
-//      }else{
-//
-//      }
-//  }
-
-  // displays visible procedures and its parameters in a block
-//  public String displayProceduresInBlock(){
-//    StringBuilder sb = new StringBuilder();
-//
-//    Set<String> names = procedures.keySet();
-//    for(String n : names){
-//      sb.append(diplayProcedure(n));
-//    }
-//    return sb.toString();
-//  }
-  //displays procedure of a given name
-//  private String diplayProcedure(String name){
-//      StringBuilder sb = new StringBuilder();
-//      sb.append("(").append(name);
-//
-//      //gets pair
-//      Pair<Map<Character, Integer>, ProgramBlock> pair = procedures.get(name);
-//
-//      Map<Character, Integer> innerMap = pair.getKey();
-//
-//      Set<Character> parameters = innerMap.keySet();
-//
-//      for(Character p : parameters){
-//        sb.append(p.toString() + " ");
-//      }
-//      sb.append(")");
-//      return sb.toString();
-//  }
-
-  // set variable (name) to value
   public void setVariable(Character name, Integer value) throws VariableNotFoundException {
     if (this.variables.containsKey(name)) {
       this.variables.put(name, value);
@@ -187,17 +147,14 @@ public class State {
     sb.append("\n");
     return sb.toString();
   }
-  // wypisuje informację o aktualnie dostępnych procedurach w bloku
   public String displayProcedures(){
     if(procedures == null){
       return "";
     }
     StringBuilder sb = new StringBuilder();
 
-    //będzie to mapa którą wyświetlę
     Map<String, List<Character>> mapToDisplay = new LinkedHashMap<>();
 
-    //dokładam wszystko z bierzącej mapy
     for(Map.Entry<String, Pair<List<Character>, Block>> entry : procedures.entrySet()){
         mapToDisplay.put(entry.getKey(), entry.getValue().getKey());
     }

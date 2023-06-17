@@ -1,25 +1,19 @@
 import java.util.*;
 public class ProgramBuilder {
     private List<Declaration> declarations;
-    //private List<ProcedureDeclaration> procedureDeclarations;
     private Block instructions;
-    //private String name;
-    //private Character name;
 
     public ProgramBuilder(){
         //this.variableDeclarations = new ArrayList<>();
         this.declarations = new ArrayList<>();
         this.instructions = new Block();
     }
-
-    //zwraca program blok, który w liście deklaracji ma deklarację zmiennej
     public ProgramBuilder declareVariable(Character variableName, Expression expression) {
         VariableDeclaration declaration = new VariableDeclaration(variableName, expression);
         declarations.add(declaration);
         return this;
     }
 
-    //zwraca program blok, który w liście deklaracji ma deklarację procedury
     public ProgramBuilder declareProcedure(String procedureName, List<Character> parameters, Block content) throws VariableAlreadyDeclaredException {
         ProcedureDeclaration declaration = new ProcedureDeclaration(procedureName, parameters, content);
         declarations.add(declaration);
@@ -53,6 +47,10 @@ public class ProgramBuilder {
     public ProgramBuilder block(Block inst, List<Declaration> declarations){
         ProgramBlock instruction = new ProgramBlock(inst, declarations);
         instructions.addInstruction(instruction);
+        return this;
+    }
+    public ProgramBuilder programBlock(ProgramBlock block){
+        instructions.addInstruction(block);
         return this;
     }
     public ProgramBlock build(){

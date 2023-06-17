@@ -1,5 +1,6 @@
-// represents Addition Expressions
-// enable to display and evaluate sum of expressions
+/* represents Addition Expressions
+ enable to display and evaluate sum of expressions
+ */
 public class Addition extends Expression {
   private Expression expresion1;
   private Expression expresion2;

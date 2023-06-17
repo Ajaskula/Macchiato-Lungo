@@ -2,7 +2,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-// represents Block in Macchiato
+/*
+Represents Block in Macchiato
+ */
 public class ProgramBlock extends Instruction {
   private List<Declaration> declarations;
   private Block instructions;
@@ -50,7 +52,7 @@ public class ProgramBlock extends Instruction {
       throw new VariableAlreadyDeclaredException(e.getMessage() + " in:\n " + this.display(0));
     }
 
-    // execute instructions
+    // Executes instructions
     instructions.execute(state, debugger);
     // display declarations if the block is the main block of the program
     if (state.getParent() == null) {

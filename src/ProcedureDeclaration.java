@@ -1,5 +1,4 @@
 import java.util.*;
-
 /* Class represents ProcedureDeclaration in Macchiato Lungo language*/
 public class ProcedureDeclaration extends Declaration {
 
@@ -56,11 +55,6 @@ public class ProcedureDeclaration extends Declaration {
     // Adds procedure to actual state.
     public void execute(State state) throws ProcedureAlreadyDeclaredException{
 
-        // dodaje procedurę do aktualnego bloku
         state.addProcedure(name, new Pair<List<Character>, Block>(parameters, content));
     }
-//    public String display(){
-//        StringBuilder sb = new StringBuilder();
-//
-//    }
 }

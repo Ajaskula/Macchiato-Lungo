@@ -1,7 +1,8 @@
 import java.io.IOException;
-
-// This class execute programs in Macchiato
-// there are two options to execute with (debug) and without debugger (execute)
+/*
+This class execute programs in Macchiato
+there are two options to execute with (debug) and without debugger (execute)
+ */
 public class ProgramExecution {
   private ProgramBlock block;
 
@@ -13,7 +14,7 @@ public class ProgramExecution {
     this.block = block;
   }
 
-  // execute program without debugger
+  // Executes program without debugger
   public void execute() {
     try {
       Debugger debugger = new Debugger(-1);
@@ -29,12 +30,11 @@ public class ProgramExecution {
       System.out.println(e.getMessage());
     } catch (IOException e) {
       System.out.println("Input or output error has appeared!");
-    } catch( ProcedureAlreadyDeclaredException e){
-
+    } catch (ProcedureAlreadyDeclaredException e) {
+      System.out.println(e.getMessage());
     }
   }
-
-  // execute program with debugger
+  // Executes program with debugger
   public void debug() {
     Debugger debugger = new Debugger(0);
     try {
@@ -52,8 +52,8 @@ public class ProgramExecution {
       System.out.println(e.getMessage());
     } catch (IOException e) {
       System.out.println("Input or output error has appeared!");
-    } catch (ProcedureAlreadyDeclaredException e){
-
+    } catch (ProcedureAlreadyDeclaredException e) {
+      System.out.println(e.getMessage());
     }
   }
 }

@@ -1,4 +1,6 @@
-// represtents variable in Macchiato language
+/*
+ Represtents variable in Macchiato language
+ */
 public class Variable extends Expression {
   private Character name;
 

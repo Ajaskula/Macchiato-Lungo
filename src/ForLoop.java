@@ -1,7 +1,8 @@
 import java.io.IOException;
 
-// represents ForLoop instruction
-// enable to create ForLoop in Macchiato
+/* Represents ForLoop instruction
+enable to create ForLoop in Macchiato
+ */
 public class ForLoop extends Instruction {
   // variable is an iterator of a loop
   private Variable variable;
@@ -40,6 +41,7 @@ public class ForLoop extends Instruction {
       throw new ModuloException(
           e.getMessage() + " in:\n " + this.display(0) + "\n" + variables.display_level(0));
     }
+
     if (!variables.checkIfVariableIsDeclared(variable.getName())) {
       variables.addVariable(variable.getName(), 0);
     }
