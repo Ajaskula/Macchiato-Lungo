@@ -14,6 +14,10 @@ public class Variable extends Expression {
     return this.name;
   }
 
+  public static Variable named(Character name){
+      return new Variable(name);
+  }
+
   @Override
   public int evaluate(State variables) throws VariableNotFoundException {
     return variables.getVariableValue(name);

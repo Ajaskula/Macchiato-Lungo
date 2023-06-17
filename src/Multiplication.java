@@ -11,6 +11,9 @@ public class Multiplication extends Expression {
     this.expresion1 = expression1;
     this.expresion2 = expression2;
   }
+  public static Multiplication of(Expression expresion1, Expression expresion2){
+    return new Multiplication(expresion1, expresion2);
+  }
 
   @Override
   public int evaluate(State variables) throws VariableNotFoundException, ZeroDivisionException {

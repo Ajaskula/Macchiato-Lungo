@@ -8,6 +8,9 @@ public class Block {
   public Block() {
     this.instructions = new ArrayList<>();
   }
+  public Block(List<Instruction> instructions) {
+    this.instructions = instructions;
+  }
 
   public List<Instruction> getInstructions() {
     return this.instructions;

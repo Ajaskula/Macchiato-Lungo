@@ -1,11 +1,14 @@
 // represents numerical literal expression in Macchiato
-public class NumericalLiteral extends Expression {
+public class Constant extends Expression {
   private int value;
 
-  public NumericalLiteral(int value) {
+  public Constant(int value) {
     this.value = value;
   }
 
+  public static Constant of(int value){
+    return new Constant(value);
+  }
   @Override
   public int evaluate(State variables) {
     return this.value;

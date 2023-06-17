@@ -16,6 +16,10 @@ public class ProgramBlock extends Instruction {
     this.instructions = instructions;
     this.declarations = new ArrayList<>();
   }
+  public ProgramBlock(Block instructions, List<Declaration> declarations) {
+    this.instructions = instructions;
+    this.declarations = declarations;
+  }
   public Block getInstructions() {
     return this.instructions;
   }
