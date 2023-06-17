@@ -22,7 +22,7 @@ public class Block {
   public void execute(State variables, Debugger debugger)
       throws IOException, VariableNotFoundException, VariableAlreadyDeclaredException,
              ZeroDivisionException, ModuloException, ProcedureAlreadyDeclaredException {
-    // execute instructions
+    // executes instructions
     for (Instruction instruction : instructions) {
       instruction.execute(variables, debugger);
     }

@@ -5,7 +5,6 @@ public class BlockBuilder {
     public BlockBuilder(){
         this.instructions = new ArrayList<>();
     }
-
     public BlockBuilder block(Block inst, List<Declaration> declarations){
         ProgramBlock instruction = new ProgramBlock(inst, declarations);
         instructions.add(instruction);

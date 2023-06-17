@@ -1,7 +1,8 @@
 import java.io.IOException;
-
-// represents Assigment instruction
-// enable to assign evaluated value of expression to a variable (name)
+/*
+represents Assigment instruction
+enable to assign evaluated value of expression to a variable (name)
+ */
 public class AssigmentInstruction extends Instruction {
   private Character name;
   private Expression expression;

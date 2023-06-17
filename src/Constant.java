@@ -1,4 +1,6 @@
-// represents numerical literal expression in Macchiato
+/*
+ represents numerical literal expression in Macchiato
+ */
 public class Constant extends Expression {
   private int value;
 

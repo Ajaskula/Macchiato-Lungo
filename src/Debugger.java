@@ -60,7 +60,7 @@ public class Debugger {
             }else{
               stateToSave = state.display();
             }
-            //próba zapisu do pliku pod wskazaną ścieżką
+            // Try to save
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))){
               writer.write(stateToSave);
               System.out.println("State successfully saved to file");

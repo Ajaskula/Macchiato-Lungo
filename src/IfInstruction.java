@@ -1,6 +1,8 @@
 import java.io.IOException;
 
-// represents if instruction in Macchiato
+/*
+Represents if instruction in Macchiato
+ */
 public class IfInstruction extends Instruction {
   // left side condition's expression
   private Expression expression1;

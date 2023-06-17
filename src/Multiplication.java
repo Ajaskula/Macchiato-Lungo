@@ -1,5 +1,8 @@
-// represents Multiplication Expressions
-// enable to display and evaluate product of expressions
+/*
+Represents Multiplication Expressions
+enable to display and evaluate product of expressions
+*/
+
 public class Multiplication extends Expression {
   private Expression expresion1;
   private Expression expresion2;

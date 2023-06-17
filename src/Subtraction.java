@@ -1,5 +1,7 @@
-// represents Subtraction Expressions
-// enable to display and evaluate subtraction of expressions
+/*
+ Represents Subtraction Expressions
+ enable to display and evaluate subtraction of expressions
+ */
 public class Subtraction extends Expression {
   private Expression expresion1;
   private Expression expression2;
